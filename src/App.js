@@ -1,5 +1,24 @@
 import logo from "./logo.svg";
 import "./App.css";
+import React, { Component } from "react";
+
+const FunctionComponent = () => (
+  <div>
+    <p>this is a component from a function</p>
+    <p>this is part of the same function component</p>
+  </div>
+);
+
+class ClassComponent extends Component {
+  render() {
+    return (
+      <div>
+        <p>This is part of a component from a class.</p>
+        <p>This is part of the same class component</p>
+      </div>
+    );
+  }
+}
 
 function App() {
   return (
@@ -18,6 +37,10 @@ function App() {
           Learn React
         </a>
       </header>
+      <body>
+        <ClassComponent />
+        <FunctionComponent />
+      </body>
     </div>
   );
 }
