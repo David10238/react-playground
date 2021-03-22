@@ -30,24 +30,39 @@ class ClassComponent extends Component {
   }
 }
 
+const PTagForEachArrayElements = (props) => (
+  <div>
+    <p>Iterating over array</p>
+    {/*map instead of forEach*/}
+    {props.arr.map((el) => (
+      <p>Array has element {el}</p>
+    ))}
+  </div>
+);
+
+const ReactHeader = () => (
+  <header className="App-header">
+    <img src={logo} className="App-logo" alt="logo" />
+    <p>
+      Edit <code>src/App.js</code> and save to reload.
+    </p>
+    <a
+      className="App-link"
+      href="https://reactjs.org"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Learn React
+    </a>
+  </header>
+);
+
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/*<ReactHeader />*/}
       <body>
+        <PTagForEachArrayElements arr={[2, 5, 1, 3]} />
         <ClassComponent name="Freddy" age={12} />{" "}
         {/* non strings need to be sorrunded by */}
         <FunctionComponent name="John" />
