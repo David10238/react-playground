@@ -11,7 +11,7 @@ export default class Counter extends React.Component {
     };
   }
 
-  handleButtonClick = () => {
+  handleButtonClick1 = () => {
     // shorcut to bind the function
     console.log("Button pressed");
     this.setState({
@@ -19,11 +19,20 @@ export default class Counter extends React.Component {
     });
   };
 
+  handleButtonClick2 = () => {
+    // shorcut to bind the function
+    console.log("Button pressed");
+    this.setState({
+      count: this.state.count - 1,
+    });
+  };
+
   render() {
     return (
       <div>
         <p>count: {this.state.count}</p>
-        <button onClick={this.handleButtonClick}>increment</button>
+        <button onClick={this.handleButtonClick1}>increment</button>
+        <button onClick={this.handleButtonClick2}>decrement</button>
       </div>
     );
   }
