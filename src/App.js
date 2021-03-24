@@ -3,6 +3,7 @@ import "./App.css";
 import React, { Component } from "react";
 import SeperateFileComponent from "./components/SeperateFileComponent";
 import Counter from "./components/Counter";
+import ImageSlider from "./components/ImageSlider";
 
 const FunctionComponent = (props) => (
   <div>
@@ -62,14 +63,8 @@ const ReactHeader = () => (
 function App() {
   return (
     <div className="App">
-      {/*<ReactHeader />*/}
       <body>
-        <Counter />
-        <PTagForEachArrayElements arr={[2, 5, 1, 3]} />
-        <ClassComponent name="Freddy" age={12} />{" "}
-        {/* non strings need to be sorrunded by */}
-        <FunctionComponent name="John" />
-        <SeperateFileComponent n={"Freddy"} />
+        <ImageSlider />
       </body>
     </div>
   );
