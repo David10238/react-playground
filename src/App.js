@@ -60,14 +60,29 @@ const ReactHeader = () => (
   </header>
 );
 
-function App() {
-  return (
-    <div className="App">
-      <body>
-        <ImageSlider />
-      </body>
-    </div>
-  );
+class App extends Component {
+  state = {
+    visible: true,
+  };
+
+  render() {
+    return (
+      <div className="App">
+        <body>
+          {this.state.visible ? <ImageSlider /> : null}
+          <button
+            onClick={() => {
+              this.setState({
+                visible: !this.state.visible,
+              });
+            }}
+          >
+            {this.state.visible ? "Hide" : "Show"}
+          </button>
+        </body>
+      </div>
+    );
+  }
 }
 
 export default App;
