@@ -44,4 +44,12 @@ export default class ImageSlider extends React.Component {
       </div>
     );
   }
+
+  componentWillUnmount() {
+    console.log("unmounting...");
+  }
+
+  componentDidMount() {
+    console.log("mounting...");
+  }
 }

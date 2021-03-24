@@ -69,6 +69,24 @@ class App extends Component {
     return (
       <div className="App">
         <body>
+          {/*this will stick around*/}
+          <div
+            style={
+              this.state.visible
+                ? {}
+                : {
+                    display: "none",
+                  }
+            }
+          >
+            {" "}
+            <ImageSlider />
+          </div>
+          {/*this will stick around using css classes*/}
+          <div className={this.state.visible ? "visible" : "hidden"}>
+            <ImageSlider />
+          </div>
+          {/*this will mount and unmount*/}
           {this.state.visible ? <ImageSlider /> : null}
           <button
             onClick={() => {
