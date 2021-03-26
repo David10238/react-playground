@@ -4,6 +4,7 @@ import React, { Component } from "react";
 import SeperateFileComponent from "./components/SeperateFileComponent";
 import Counter from "./components/Counter";
 import ImageSlider from "./components/ImageSlider";
+import Form from "./components/Form";
 
 const FunctionComponent = (props) => (
   <div>
@@ -66,6 +67,8 @@ class App extends Component {
   };
 
   render() {
+    return <Form />;
+    // not returning this because I'm doing other stuff
     return (
       <div className="App">
         <body>
