@@ -7,6 +7,7 @@ import ImageSlider from "./components/ImageSlider";
 import Form from "./components/Form";
 import BetterForm from "./components/BetterForm";
 import ValidatedForm from "./components/ValidatedForm";
+import FetchingAPIData from "./components/FetchingAPIData";
 
 const FunctionComponent = (props) => (
   <div>
@@ -69,6 +70,7 @@ class App extends Component {
   };
 
   render() {
+    return <FetchingAPIData />;
     return <ValidatedForm />;
     // not returning this because I'm doing other stuff
     return (
