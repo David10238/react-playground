@@ -3,15 +3,15 @@ import React from "react";
 export default class FetchingAPIData extends React.Component {
   state = {
     loading: true,
-    person: null,
+    people: [],
   };
 
   async componentDidMount() {
-    const url = "https://api.randomuser.me/";
+    const url = "https://api.randomuser.me/?results=2";
     const response = await fetch(url);
     const data = await response.json();
 
-    this.setState({ person: data.results[0], loading: false });
+    this.setState({ people: data.results, loading: false });
   }
 
   render() {
@@ -19,16 +19,32 @@ export default class FetchingAPIData extends React.Component {
       return <div>loading...</div>;
     }
 
-    if (!this.state.person) {
+    if (!this.state.people.length) {
       return <div>didn't get a person</div>;
     }
 
+    const prefferedTaggingMethod = this.state.people.map((person) => (
+      <div key={person.login.uuid}>
+        <div>person...</div>
+        <div>FirstName: {person.name.first}</div>
+        <div>LastName: {person.name.last}</div>
+        <img src={person.picture.large} />
+      </div>
+    ));
+
+    const otherPossibleTaggingMethod = this.state.people.map((person, id) => (
+      <div key={`unique-person-key-${id}`}>
+        <div>person...</div>
+        <div>FirstName: {person.name.first}</div>
+        <div>LastName: {person.name.last}</div>
+        <img src={person.picture.large} />
+      </div>
+    ));
+
     return (
       <div>
-        <div>person...</div>
-        <div>FirstName: {this.state.person.name.first}</div>
-        <div>LastName: {this.state.person.name.last}</div>
-        <img src={this.state.person.picture.large} />
+        {prefferedTaggingMethod}
+        {otherPossibleTaggingMethod}
       </div>
     );
   }
