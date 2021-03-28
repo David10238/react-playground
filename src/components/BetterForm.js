@@ -18,7 +18,7 @@ export default class BetterForm extends React.Component {
   };
 
   handleSubmit = (event) => {
-    event.preventDefualt();
+    event.preventDefault();
     console.log(this.state);
   };
 

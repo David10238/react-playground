@@ -6,6 +6,7 @@ import Counter from "./components/Counter";
 import ImageSlider from "./components/ImageSlider";
 import Form from "./components/Form";
 import BetterForm from "./components/BetterForm";
+import ValidatedForm from "./components/ValidatedForm";
 
 const FunctionComponent = (props) => (
   <div>
@@ -68,7 +69,7 @@ class App extends Component {
   };
 
   render() {
-    return <BetterForm />;
+    return <ValidatedForm />;
     // not returning this because I'm doing other stuff
     return (
       <div className="App">
