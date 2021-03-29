@@ -67,9 +67,36 @@ const ReactHeader = () => (
 class App extends Component {
   state = {
     visible: true,
+    count: 0,
+  };
+
+  increment = () => {
+    this.setState({
+      count: this.state.count + 1,
+    });
+  };
+
+  decrement = () => {
+    this.setState({
+      count: this.state.count - 1,
+    });
   };
 
   render() {
+    return (
+      <div>
+        <Counter
+          count={this.state.count}
+          increment={this.increment}
+          decrement={this.decrement}
+        />
+        <Counter
+          count={this.state.count}
+          increment={this.increment}
+          decrement={this.decrement}
+        />
+      </div>
+    );
     return <FetchingAPIData />;
     return <ValidatedForm />;
     // not returning this because I'm doing other stuff
