@@ -8,6 +8,7 @@ import Form from "./components/Form";
 import BetterForm from "./components/BetterForm";
 import ValidatedForm from "./components/ValidatedForm";
 import FetchingAPIData from "./components/FetchingAPIData";
+import TypeScriptTest from "./components/TypescriptTest";
 
 const FunctionComponent = (props) => (
   <div>
@@ -83,6 +84,8 @@ class App extends Component {
   };
 
   render() {
+    return <TypeScriptTest />;
+
     return (
       <div>
         <Counter
