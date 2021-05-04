@@ -10,6 +10,7 @@ import ValidatedForm from "./components/ValidatedForm";
 import FetchingAPIData from "./components/FetchingAPIData";
 import TypeScriptTest from "./components/TypescriptTest";
 import CanvasTest from "./components/canvasTesting/CanvasTest";
+import MouseAndKeyboardTesting from "./components/MouseAndKeyboardTesting";
 
 const FunctionComponent = (props) => (
   <div>
@@ -85,6 +86,7 @@ class App extends Component {
   };
 
   render() {
+    return <MouseAndKeyboardTesting />;
     return <CanvasTest />;
     return <TypeScriptTest />;
 
