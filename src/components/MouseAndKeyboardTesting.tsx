@@ -5,24 +5,28 @@ const KeyboardTest = ()=> {
 
     const [timesSaved, setTimesSaved] = useState(0);
 
-    // replace with the dictionary
-    const [spaceDown, setSpaceDown] = useState(false);
+    // replace with the dictionary this won't trigger a rerender
+    const keyDict = new Map<string, boolean>()
+
+
+    const keyIsPressed = (key:string) => {
+        return keyDict.has(key) && keyDict.get(key)
+    }
 
     const handleKeyDown = (event:KeyboardEvent) => {
         console.log("event with key ", event.key)
         if(event.key == 's' && event.ctrlKey){
             event.preventDefault();
             console.log("A key was pressed", event.key);
+            console.log("Space pressed", keyIsPressed(' '))
             setTimesSaved(timesSaved + 1);
         }
 
-        if(event.key == ' ')
-            setSpaceDown(true);
+        keyDict.set(event.key, true)
     }
 
     const handleKeyUp = (event:KeyboardEvent) => {
-        if(event.key == ' ')
-            setSpaceDown(false);
+        keyDict.set(event.key, false)
     }
 
     // only needs to be run when it's rendered, empty [] prevents it from being recreated each component change
@@ -41,7 +45,6 @@ const KeyboardTest = ()=> {
     return (
         <div> 
             <p>Times saved {timesSaved}</p>
-            <p>{spaceDown ? "True" : "False"}</p>
         </div>
     );
 };
@@ -83,7 +86,6 @@ const MouseTest = () =>{
     return(
         <div>
             <p>x: {mouseX}, y: {mouseY}</p>
-            <p>{leftMousePressed ? "True" : "False"}</p>
         </div>
     )
 };
