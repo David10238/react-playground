@@ -47,8 +47,43 @@ const KeyboardTest = ()=> {
 };
 
 const MouseTest = () =>{
+    const [mouseY, setMouseY] = useState(0)
+    const [mouseX, setMouseX] = useState(0)
+
+    // turn into dictionary
+    const [leftMousePressed, setLeftMousePressed] = useState(false);
+
+    const mouseMove = (event:MouseEvent)=>{
+        setMouseX(event.x)
+        setMouseY(event.y)
+    };
+
+    const mouseDown = (event:MouseEvent)=>{
+        if(event.button == 0)
+            setLeftMousePressed(true)
+    }
+
+    const mouseUp = (event:MouseEvent)=>{
+        if(event.button == 0)
+            setLeftMousePressed(false)
+    }
+
+    useEffect(()=> {
+        window.addEventListener('mousemove', mouseMove)
+        window.addEventListener('mousedown', mouseDown)
+        window.addEventListener('mouseup', mouseUp)
+
+        return () => {
+            window.removeEventListener('mousemove', mouseMove)
+            window.removeEventListener('mousedown', mouseDown)
+            window.removeEventListener('mouseup', mouseUp)
+        }
+    })
+
     return(
         <div>
+            <p>x: {mouseX}, y: {mouseY}</p>
+            <p>{leftMousePressed ? "True" : "False"}</p>
         </div>
     )
 };
@@ -56,7 +91,6 @@ const MouseTest = () =>{
 const MouseAndKeyboardTesting = () =>(
     <div>
         <KeyboardTest/>
-        <p/>
         <MouseTest/>
     </div>
 );
